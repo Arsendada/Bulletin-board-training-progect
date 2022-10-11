@@ -1,0 +1,19 @@
+header h1 {
+    background: url("bg.jpg") left / auto 100% no-repeat, url("bg.jpg")
+    right / auto 100% no-repeat;
+}
+.root {
+    font-size: larger;
+}
+ol {
+    list-style: none;
+}
+li.nav-item {
+    margin-right: 5px;
+}
+li.nav-item.dropdown {
+    margin-right: 10px;
+}
+div.dropdown-menu.show {
+    margin-right: 110px;
+}
