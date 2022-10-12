@@ -1,8 +1,13 @@
 {% extends "layout/basic.html" %}
 
+<!-- {% load thumbnail %}
+{% load static %} -->
+<!-- {% load bootstrap4 %} -->
+
+{% block title %}{{ 'Мои объявления' }}{% endblock %}
+
 {% block content %}
-<h2>Последние 10 объявлений</h2>
-<h2 class="mb-2">{{ rubric }}</h2>
+
 <div class="container-fluid mb-2">
     {% if bbs %}
     <ul class="list-unstyled">
@@ -27,4 +32,5 @@
     </ul>
     {% endif %}
 </div>
+
 {% endblock %}

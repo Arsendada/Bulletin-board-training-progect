@@ -25,7 +25,9 @@ def index(request):
     """
     Функция для вывода главной страницы
     """
-    return render(request, 'main/index.html')
+    bbs = Bb.objects.filter(is_active=True)[:10]
+    context = {'bbs': bbs}
+    return render(request, 'main/index.html', context)
 
 def other_page(request, page):
     """
@@ -44,7 +46,9 @@ class BBLoginView(LoginView):
 
 @login_required
 def profile(request):
-    return render(request, 'main/profile.html')
+    bbs = Bb.objects.filter(author=request.user.pk)
+    context = {'bbs': bbs}
+    return render(request, 'main/profile.html', context)
 
 
 class BBLogoutView(LoginRequiredMixin, LogoutView):
@@ -143,3 +147,12 @@ def detail(request, rubric_pk, pk):
     ais = bb.additionalimage_set.all()
     context = {'bb': bb, 'ais': ais}
     return render(request, 'main/detail.html', context)
+
+
+@login_required
+def profile_bb_detail(request, pk):
+    bbs=''
+    if request.user.pk == pk:
+        bbs = Bb.objects.filter(author_id=pk)
+    context = {'bbs': bbs}
+    return render(request, 'main/profile_bb_detail.html', context)
