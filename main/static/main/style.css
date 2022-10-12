@@ -17,3 +17,10 @@ li.nav-item.dropdown {
 div.dropdown-menu.show {
     margin-right: 110px;
 }
+
+img.main-image {
+    width: 300px;
+}
+img.additional-image {
+    width: 180px;
+}
