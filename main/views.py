@@ -160,6 +160,10 @@ def profile_bb_detail(request, pk):
 
 @login_required
 def profile_bb_add(request):
+    """
+    Функция для добавления объявлений
+    зарегистрированными пользователями
+    """
     if request.method == 'POST':
         form = BbForm(request.POST, request.FILES)
         if form.is_valid():
