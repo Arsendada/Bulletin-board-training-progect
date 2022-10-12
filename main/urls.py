@@ -7,6 +7,7 @@ app_name = 'main'
 urlpatterns = [
     path('<int:pk>/', by_rubric, name='by_rubric'),
     path('accounts/profile/<int:pk>/', profile_bb_detail, name='profile_bb_detail'),
+    path('accounts/profile/add/', profile_bb_add, name='profile_bb_add'),
     path('<int:rubric_pk>/<int:pk>/', detail, name='detail'),
     path('<str:page>', other_page, name='other'),
     path('', index, name='index'),

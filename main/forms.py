@@ -52,4 +52,5 @@ class BbForm(forms.ModelForm):
         model = Bb
         fields = '__all__'
         widgets = {'author': forms.HiddenInput}
+
 AIFormSet = inlineformset_factory(Bb, AdditionalImage, fields = '__all__')
