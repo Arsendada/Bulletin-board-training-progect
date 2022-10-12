@@ -71,7 +71,7 @@ class Bb(models.Model):
                                       verbose_name='Опубликовано')
 
     def delete(self, *args, **kwargs):
-        for ai in self.additionalsimage_set.all():
+        for ai in self.additionalimage_set.all():
             ai.delete()
         super().delete(*args, **kwargs)
 

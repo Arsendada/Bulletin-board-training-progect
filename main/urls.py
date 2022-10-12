@@ -5,6 +5,8 @@ from .views import *
 
 app_name = 'main'
 urlpatterns = [
+    path('accounts/profile/change/<int:pk>/', profile_bb_change, name='profile_bb_change'),
+    path('accounts/profile/delete/<int:pk>/', profile_bb_delete, name='profile_bb_delete'),
     path('<int:pk>/', by_rubric, name='by_rubric'),
     path('accounts/profile/<int:pk>/', profile_bb_detail, name='profile_bb_detail'),
     path('accounts/profile/add/', profile_bb_add, name='profile_bb_add'),
