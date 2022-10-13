@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import password_validation
-
+from captcha.fields import CaptchaField
 from django.contrib.auth.models import User
 
 from .models import *
@@ -54,3 +54,21 @@ class BbForm(forms.ModelForm):
         widgets = {'author': forms.HiddenInput}
 
 AIFormSet = inlineformset_factory(Bb, AdditionalImage, fields = '__all__')
+
+
+class UserCommentForm(forms.ModelForm):
+    """Класс формы для написания комментариев"""
+    class Meta:
+        model = Comment
+        exclude = ('is_active',)
+        widgets = {'bb': forms.HiddenInput}
+
+
+class GuestCommentForm(forms.ModelForm):
+    """Класс формы для капчи"""
+    captcha = CaptchaField(label='Введите текст с картинки',
+                           error_messages={'invalid': 'Неправильный текст'})
+    class Meta:
+        model = Comment
+        exclude = ('is_active',)
+        widgets = {'bb': forms.HiddenInput}
